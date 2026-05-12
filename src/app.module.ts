@@ -30,12 +30,11 @@ import { User } from './users/entities/user.entity';
 
       port: 5432,
 
-      username: 'vikashadmin',
+      username: process.env.DB_USERNAME,
 
-      password: 'Anjana@7707',
+      password: process.env.DB_PASSWORD,
 
-      database: 'transportdb',
-
+      database: process.env.DB_NAME,
       ssl: true,
 
       extra: {
