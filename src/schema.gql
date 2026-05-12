@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Driver {
+  id: ID!
+  name: String!
+  email: String!
+  phoneNumber: String!
+  vehicleNumber: String!
+  licenceNumber: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  phoneNumber: String!
+  address: String!
+}
+
+type Query {
+  hello: String!
+  getDrivers: [Driver!]!
+  getUsers: [User!]!
+}
+
+type Mutation {
+  registerDriver(input: CreateDriverInput!): Driver!
+  registerUser(input: CreateUserInput!): User!
+}
+
+input CreateDriverInput {
+  name: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  vehicleNumber: String!
+  licenceNumber: String!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  address: String!
+}
