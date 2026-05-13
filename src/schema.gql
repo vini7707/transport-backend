@@ -19,15 +19,36 @@ type User {
   address: String!
 }
 
+type AuthResponse {
+  accessToken: String!
+}
+
+type Request {
+  id: ID!
+  userId: Float!
+  driverId: Float!
+  pickupLocation: String!
+  dropLocation: String!
+  containerDetails: String!
+  status: String!
+}
+
 type Query {
   hello: String!
   getDrivers: [Driver!]!
   getUsers: [User!]!
+  driverRequests(driverId: Int!): [Request!]!
+  userRequests(userId: Int!): [Request!]!
 }
 
 type Mutation {
   registerDriver(input: CreateDriverInput!): Driver!
   registerUser(input: CreateUserInput!): User!
+  loginDriver(input: LoginInput!): AuthResponse!
+  loginUser(input: LoginInput!): AuthResponse!
+  createRequest(input: CreateRequestInput!): Request!
+  acceptRequest(id: Int!): Request!
+  rejectRequest(id: Int!): Request!
 }
 
 input CreateDriverInput {
@@ -45,4 +66,17 @@ input CreateUserInput {
   password: String!
   phoneNumber: String!
   address: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input CreateRequestInput {
+  userId: Float!
+  driverId: Float!
+  pickupLocation: String!
+  dropLocation: String!
+  containerDetails: String!
 }

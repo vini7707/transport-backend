@@ -7,6 +7,8 @@ import { AppResolver } from './app.resolver';
 import { DriversModule } from './drivers/drivers.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
+import { AuthModule } from './auth/auth.module';
+import { RequestsModule } from './requests/requests.module';
 
 
 @Module({
@@ -30,11 +32,12 @@ import { User } from './users/entities/user.entity';
 
       port: 5432,
 
-      username: process.env.DB_USERNAME,
+      username: 'vikashadmin',
 
-      password: process.env.DB_PASSWORD,
+      password: 'Anjana@7707',
 
-      database: process.env.DB_NAME,
+      database: 'transportdb',
+
       ssl: true,
 
       extra: {
@@ -53,6 +56,8 @@ import { User } from './users/entities/user.entity';
     DriversModule,
 
     UsersModule,
+    AuthModule,
+    RequestsModule,
   ],
   providers: [AppResolver],
 })
